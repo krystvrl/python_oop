@@ -25,8 +25,8 @@ def demo_creation_and_basic_operations():
     
     # Создание счетов
     print("\n📝 Создание счетов:")
-    account1 = BankAccount("Иванов Иван Иванович", "RUB", 10000)
-    account2 = BankAccount("Петров Петр Петрович", "RUB", 5000)
+    account1 = BankAccount("Иванова Мария Сергеевна", "RUB", 10000)
+    account2 = BankAccount("Петрова Александра Семеновна", "RUB", 5000)
     
     print(account1)
     print("\n" + str(account2))
@@ -95,7 +95,7 @@ def demo_validation():
     
     # 2. Валидация при операциях
     print("\n\n❌ Попытка выполнения некорректных операций:")
-    account = BankAccount("Сидоров Сидор Сидорович", "RUB", 10000)
+    account = BankAccount("Сидорова Виолетта Николаевна", "RUB", 10000)
     print(f"\nСоздан счет: {account.owner_name}, баланс: {account.balance:,.2f} {account.currency}")
     
     # Попытка снять больше, чем есть
@@ -129,7 +129,7 @@ def demo_state_management():
     print_separator("СЦЕНАРИЙ 3: УПРАВЛЕНИЕ СОСТОЯНИЕМ СЧЕТА")
     
     # Создаем счет
-    account = BankAccount("Николаев Николай", "RUB", 50000)
+    account = BankAccount("Кузнецова Ирина Николаевна", "RUB", 50000)
     print("📝 Начальное состояние:")
     print(account)
     
@@ -174,9 +174,9 @@ def demo_magic_methods():
     print_separator("СЦЕНАРИЙ 4: МАГИЧЕСКИЕ МЕТОДЫ")
     
     # Создаем счета
-    acc1 = BankAccount("Алексеев Алексей", "RUB", 15000)
-    acc2 = BankAccount("Алексеев Алексей", "RUB", 15000)  # Другой номер счета
-    acc3 = BankAccount("Борисов Борис", "USD", 1000)
+    acc1 = BankAccount("Москвитин Алексей", "RUB", 15000)
+    acc2 = BankAccount("Москвитин Алексей", "RUB", 15000)  # Другой номер счета
+    acc3 = BankAccount("Борисова Елена", "USD", 1000)
     
     print("📝 Созданы счета:")
     print(f"acc1: {repr(acc1)}")
@@ -214,41 +214,6 @@ def demo_magic_methods():
     for i, t in enumerate(acc1.get_transaction_history(), 1):
         print(f"  {i}. {t['type']}: {t['amount']:>7,.2f} - {t['description']}")
 
-
-def demo_class_attributes():
-    """
-    Сценарий 5: Демонстрация атрибутов класса.
-    Показывает доступ к атрибутам класса через класс и экземпляр.
-    """
-    print_separator("СЦЕНАРИЙ 5: АТРИБУТЫ КЛАССА")
-    
-    print("📊 Атрибуты класса BankAccount:")
-    print(f"  MAX_BALANCE (через класс): {BankAccount.MAX_BALANCE:,.0f}")
-    print(f"  MIN_BALANCE (через класс): {BankAccount.MIN_BALANCE:,.0f}")
-    print(f"  VALID_CURRENCIES (через класс): {BankAccount.VALID_CURRENCIES}")
-    
-    # Создаем счета
-    acc1 = BankAccount("Владелец 1", "RUB")
-    acc2 = BankAccount("Владелец 2", "USD")
-    acc3 = BankAccount("Владелец 3", "EUR")
-    
-    print(f"\n📝 Создано {BankAccount._account_counter - 1000} счетов")
-    
-    print("\n📌 Доступ к атрибутам класса через экземпляры:")
-    print(f"  acc1.MAX_BALANCE: {acc1.MAX_BALANCE:,.0f}")
-    print(f"  acc2.MAX_BALANCE: {acc2.MAX_BALANCE:,.0f}")
-    print(f"  acc3.MAX_BALANCE: {acc3.MAX_BALANCE:,.0f}")
-    
-    print("\n📌 Номера счетов (генерируются автоматически):")
-    print(f"  acc1: {acc1.account_number}")
-    print(f"  acc2: {acc2.account_number}")
-    print(f"  acc3: {acc3.account_number}")
-    
-    # Демонстрация счетчика
-    print(f"\n📌 Счетчик аккаунтов: {BankAccount._account_counter - 1000}")
-    print(f"  (доступен только внутри класса, для внешнего кода скрыт)")
-
-
 def main():
     """
     Главная функция, запускающая все сценарии демонстрации.
@@ -256,15 +221,12 @@ def main():
     print("=" * 60)
     print("     ЛАБОРАТОРНАЯ РАБОТА №1: БАНКОВСКАЯ СИСТЕМА".center(60))
     print("=" * 60)
-    print("\nВыполнил: Студент группы ...")
-    print(f"Дата: {datetime.now().strftime('%d.%m.%Y %H:%M')}")
     
     # Запуск всех сценариев
     demo_creation_and_basic_operations()
     demo_validation()
     demo_state_management()
     demo_magic_methods()
-    demo_class_attributes()
     
     print_separator("ИТОГ")
     print("""
@@ -277,8 +239,7 @@ def main():
    • Поведение, зависящее от состояния
    • Бизнес-методы (deposit, withdraw, transfer)
    • Магические методы (__str__, __repr__, __eq__, __len__)
-   • Атрибуты класса (MAX_BALANCE, MIN_BALANCE, VALID_CURRENCIES)
-   • Демонстрация всех возможностей в 5 сценариях
+   • Демонстрация всех возможностей в 4 сценариях
     """)
 
 
