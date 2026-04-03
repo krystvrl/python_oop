@@ -1,8 +1,3 @@
-"""
-Модуль для работы с коллекцией банковских счетов.
-Содержит класс BankAccountCollection для управления группой счетов.
-"""
-
 from typing import List, Optional, Callable, Any
 from copy import deepcopy
 from model import BankAccount
@@ -21,16 +16,6 @@ class BankAccountCollection:
     # Базовые методы управления коллекцией
     
     def add(self, item: BankAccount) -> None:
-        """
-        Добавление объекта в коллекцию.
-        
-        Args:
-            item: Объект BankAccount для добавления
-            
-        Raises:
-            TypeError: Если объект не является BankAccount
-            ValueError: Если счет с таким номером уже существует
-        """
         if not isinstance(item, BankAccount):
             raise TypeError(f"Можно добавлять только объекты BankAccount. "
                           f"Получен {type(item).__name__}")
@@ -42,15 +27,6 @@ class BankAccountCollection:
         self._items.append(item)
     
     def remove(self, item: BankAccount) -> bool:
-        """
-        Удаление объекта из коллекции.
-        
-        Args:
-            item: Объект для удаления
-            
-        Returns:
-            bool: True если объект удален, False если не найден
-        """
         try:
             self._items.remove(item)
             return True
@@ -58,18 +34,6 @@ class BankAccountCollection:
             return False
     
     def remove_at(self, index: int) -> BankAccount:
-        """
-        Удаление объекта по индексу.
-        
-        Args:
-            index: Индекс удаляемого элемента
-            
-        Returns:
-            BankAccount: Удаленный счет
-            
-        Raises:
-            IndexError: Если индекс вне диапазона
-        """
         if not isinstance(index, int):
             raise TypeError("Индекс должен быть целым числом")
         
@@ -88,18 +52,6 @@ class BankAccountCollection:
         return self._items.copy()
     
     def get_by_index(self, index: int) -> BankAccount:
-        """
-        Получение счета по индексу.
-        
-        Args:
-            index: Индекс элемента
-            
-        Returns:
-            BankAccount: Счет по указанному индексу
-            
-        Raises:
-            IndexError: Если индекс вне диапазона
-        """
         if not isinstance(index, int):
             raise TypeError("Индекс должен быть целым числом")
         
@@ -111,12 +63,6 @@ class BankAccountCollection:
     def contains(self, item: BankAccount) -> bool:
         """
         Проверка наличия объекта в коллекции.
-        
-        Args:
-            item: Проверяемый объект
-            
-        Returns:
-            bool: True если объект есть в коллекции
         """
         return item in self._items
     
@@ -129,12 +75,6 @@ class BankAccountCollection:
     def find_by_account_number(self, account_number: str) -> Optional[BankAccount]:
         """
         Поиск счета по номеру.
-        
-        Args:
-            account_number: Номер счета
-            
-        Returns:
-            Optional[BankAccount]: Найденный счет или None
         """
         for item in self._items:
             if item.account_number == account_number:
@@ -144,12 +84,6 @@ class BankAccountCollection:
     def find_by_owner_name(self, owner_name: str) -> List[BankAccount]:
         """
         Поиск счетов по ФИО владельца (частичное совпадение).
-        
-        Args:
-            owner_name: ФИО владельца или его часть
-            
-        Returns:
-            List[BankAccount]: Список найденных счетов
         """
         result = []
         search_name = owner_name.lower()
@@ -161,12 +95,6 @@ class BankAccountCollection:
     def find_by_status(self, status) -> List[BankAccount]:
         """
         Поиск счетов по статусу.
-        
-        Args:
-            status: Статус счета (значение из AccountStatus)
-            
-        Returns:
-            List[BankAccount]: Список счетов с указанным статусом
         """
         result = []
         for item in self._items:
@@ -177,24 +105,12 @@ class BankAccountCollection:
     def find_by_min_balance(self, min_balance: float) -> List[BankAccount]:
         """
         Поиск счетов с балансом не менее указанного.
-        
-        Args:
-            min_balance: Минимальный баланс
-            
-        Returns:
-            List[BankAccount]: Список счетов
         """
         return [item for item in self._items if item.balance >= min_balance]
     
     def find_by_currency(self, currency: str) -> List[BankAccount]:
         """
         Поиск счетов по валюте.
-        
-        Args:
-            currency: Код валюты
-            
-        Returns:
-            List[BankAccount]: Список счетов
         """
         return [item for item in self._items if item.currency == currency.upper()]
     
@@ -203,8 +119,7 @@ class BankAccountCollection:
     def sort_by_owner_name(self, reverse: bool = False) -> None:
         """
         Сортировка коллекции по ФИО владельца.
-        
-        Args:
+       
             reverse: Если True, сортировка в обратном порядке
         """
         self._items.sort(key=lambda acc: acc.owner_name, reverse=reverse)
@@ -212,8 +127,7 @@ class BankAccountCollection:
     def sort_by_balance(self, reverse: bool = False) -> None:
         """
         Сортировка коллекции по балансу.
-        
-        Args:
+
             reverse: Если True, сортировка в обратном порядке
         """
         self._items.sort(key=lambda acc: acc.balance, reverse=reverse)
@@ -221,18 +135,12 @@ class BankAccountCollection:
     def sort_by_account_number(self, reverse: bool = False) -> None:
         """
         Сортировка коллекции по номеру счета.
-        
-        Args:
-            reverse: Если True, сортировка в обратном порядке
         """
         self._items.sort(key=lambda acc: acc.account_number, reverse=reverse)
     
     def sort_by_created_date(self, reverse: bool = False) -> None:
         """
         Сортировка коллекции по дате создания.
-        
-        Args:
-            reverse: Если True, сортировка в обратном порядке
         """
         self._items.sort(key=lambda acc: acc.created_date, reverse=reverse)
     
@@ -240,10 +148,7 @@ class BankAccountCollection:
              reverse: bool = False) -> None:
         """
         Универсальная сортировка коллекции.
-        
-        Args:
             key: Функция для получения ключа сортировки
-            reverse: Если True, сортировка в обратном порядке
         """
         if key is None:
             self._items.sort(reverse=reverse)
@@ -283,12 +188,6 @@ class BankAccountCollection:
     def get_by_currency(self, currency: str) -> 'BankAccountCollection':
         """
         Получение счетов в указанной валюте.
-        
-        Args:
-            currency: Код валюты
-            
-        Returns:
-            BankAccountCollection: Новая коллекция счетов
         """
         new_collection = BankAccountCollection()
         for item in self._items:
@@ -337,9 +236,6 @@ class BankAccountCollection:
     def count_by_status(self, status) -> int:
         """
         Подсчет счетов с определенным статусом.
-        
-        Args:
-            status: Статус счета
             
         Returns:
             int: Количество счетов
@@ -363,9 +259,6 @@ class BankAccountCollection:
         
         Args:
             index: Индекс элемента
-            
-        Returns:
-            BankAccount: Счет по индексу
             
         Raises:
             IndexError: Если индекс вне диапазона

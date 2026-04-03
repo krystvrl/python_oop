@@ -1,8 +1,3 @@
-"""
-Демонстрация работы коллекции банковских счетов.
-Показывает все возможности BankAccountCollection.
-"""
-
 from model import BankAccount
 from collection import BankAccountCollection
 from validate import AccountStatus
@@ -272,20 +267,5 @@ def main():
     scenario_3_sorting_and_filtering()
     scenario_4_transfer_and_business_logic()
     
-    # Итоговое сообщение
-    print_separator("ВСЕ СЦЕНАРИИ ВЫПОЛНЕНЫ УСПЕШНО")
-    print("\n✓ Реализованы все требования для оценки 5:")
-    print("  1. Базовые операции (add, remove, get_all)")
-    print("  2. Проверка типов и дубликатов")
-    print("  3. Методы поиска (find_by_*)")
-    print("  4. Магические методы (__len__, __iter__, __getitem__)")
-    print("  5. Удаление по индексу (remove_at)")
-    print("  6. Сортировка (sort_by_*, sort)")
-    print("  7. Логические операции (get_active_accounts, get_positive_balance_accounts)")
-    print("  8. Валидация вынесена в отдельный файл")
-    print("  9. 4 сценария демонстрации работы")
-    print("\n✓ Коллекция успешно протестирована!")
-
-
 if __name__ == "__main__":
     main()

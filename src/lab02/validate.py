@@ -1,8 +1,3 @@
-"""
-Модуль с валидаторами для банковских счетов.
-Содержит функции валидации для переиспользования.
-"""
-
 from typing import Any
 from enum import Enum
 
@@ -21,12 +16,7 @@ def validate_owner_name(name: str) -> bool:
     
     Args:
         name: Проверяемое ФИО
-        
-    Returns:
         bool: True если валидация пройдена
-        
-    Raises:
-        ValueError: Если ФИО некорректно
     """
     if not isinstance(name, str):
         raise ValueError("ФИО должно быть строкой")
