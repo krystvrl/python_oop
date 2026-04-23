@@ -194,12 +194,16 @@ class BankAccount:
             "transactions": self.transaction_count
         }
     
-    def calculate_annual_income(self) -> float:
+    def calculate_annual_interest(self) -> float:
         """
         Расчет годового дохода по счету.
         Базовый метод (переопределяется в дочерних классах).
         """
         return 0.0
+
+    def calculate_annual_income(self) -> float:
+        """Совместимый алиас для старого названия метода."""
+        return self.calculate_annual_interest()
     
     def _add_transaction(self, transaction_type: str, amount: float, 
                           description: str) -> dict:

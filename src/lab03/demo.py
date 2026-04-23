@@ -37,25 +37,29 @@ def demo_inheritance():
     print(f"\n💰 Сберегательный счет Маленковой:")
     print(f"   Баланс: {savings.balance:.2f} {savings.currency}")
     print(f"   Процентная ставка: {savings.interest_rate}%")
+    print(f"   Минимальный остаток: {savings.min_balance_maintained:.2f} {savings.currency}")
+    print(f"   Соблюдается минимальный остаток: {savings.check_min_balance()}")
     interest = savings.apply_interest()
     print(f"   Начислено процентов: {interest:.2f} {savings.currency}")
     print(f"   Баланс после начисления: {savings.balance:.2f} {savings.currency}")
-    
+    print(f"   Дата последнего начисления: {savings.last_interest_date.strftime('%d.%m.%Y')}")
+
     # Кредитный счет
     print(f"\n💳 Кредитный счет Москвитина:")
     print(f"   Кредитный лимит: {credit.credit_limit:.2f} {credit.currency}")
     print(f"   Доступно кредита: {credit.available_credit:.2f} {credit.currency}")
-    print(f"   Баланс до снятия: {credit.balance:.2f}")
-    
-    credit.withdraw(15000, "Покупка ноутбука")
+    print(f"   Использовано кредита: {credit.used_credit:.2f} {credit.currency}")
+    print(f"   Баланс до снятия: {credit.balance:.2f} {credit.currency}")
+
+    credit.credit_withdraw(15000, "Покупка ноутбука")
     print(f"   После снятия 15000:")
     print(f"   Баланс: {credit.balance:.2f} {credit.currency}")
-    print(f"   Использовано кредита: {credit.credit_used:.2f} {credit.currency}")
-    
+    print(f"   Использовано кредита: {credit.used_credit:.2f} {credit.currency}")
+
     credit.deposit(10000, "Пополнение")
     print(f"\n   После пополнения на 10000:")
     print(f"   Баланс: {credit.balance:.2f} {credit.currency}")
-    print(f"   Остаток кредита: {credit.credit_used:.2f} {credit.currency}")
+    print(f"   Остаток кредита: {credit.used_credit:.2f} {credit.currency}")
 
 
 def demo_polymorphism():
@@ -74,7 +78,7 @@ def demo_polymorphism():
     
     print("\n💰 Расчет годового дохода (полиморфизм):")
     for acc in accounts:
-        income = acc.calculate_annual_income()
+        income = acc.calculate_annual_interest()
         print(f"   {acc.__class__.__name__}: доход = {income:+.2f} {acc.currency}")
     
     print("\n🔍 Проверка типов (isinstance):")
@@ -132,7 +136,7 @@ def main():
     print("""
     ✅ Изучено:
     1. Наследование — super(), новые атрибуты, новые методы
-    2. Полиморфизм — переопределение __str__, withdraw, deposit, calculate_annual_income
+    2. Полиморфизм — переопределение __str__, withdraw, deposit, calculate_annual_interest
     3. isinstance() — проверка типов и фильтрация
     4. Работа с коллекцией объектов разных типов
     """)
