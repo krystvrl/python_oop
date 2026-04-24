@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Демонстрация лабораторной работы №4: интерфейсы и абстрактные классы."""
 
 from __future__ import annotations
@@ -15,8 +14,8 @@ def _ensure_src_on_path() -> None:
 
 _ensure_src_on_path()
 
-from lab04.interfaces import Comparable, Printable  # noqa: E402
-from lab04.models import (  # noqa: E402
+from interfaces import Comparable, Printable  
+from models import (  
     BankAccount,
     CreditAccount,
     InterfaceCollection,
