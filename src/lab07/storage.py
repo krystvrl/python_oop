@@ -116,11 +116,9 @@ def _deserialize_account(data: Dict[str, Any]) -> BankAccount:
 def save_accounts(accounts: List[BankAccount], filepath: str) -> None:
     """
     Сохранить список счетов в JSON-файл.
-
     Args:
         accounts: Список банковских счетов для сохранения
         filepath: Путь к файлу для сохранения
-
     Raises:
         StorageError: При ошибке записи файла
     """
@@ -142,13 +140,10 @@ def save_accounts(accounts: List[BankAccount], filepath: str) -> None:
 def load_accounts(filepath: str) -> List[BankAccount]:
     """
     Загрузить список счетов из JSON-файла.
-
     Args:
         filepath: Путь к файлу для загрузки
-
     Returns:
         Список загруженных банковских счетов
-
     Raises:
         StorageError: При ошибке чтения или парсинга файла
     """

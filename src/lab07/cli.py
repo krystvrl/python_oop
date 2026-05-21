@@ -31,7 +31,6 @@ class BankCLI:
     def __init__(self, app: BankApp) -> None:
         """
         Инициализация CLI.
-
         Args:
             app: Экземпляр BankApp для работы с данными
         """
@@ -91,7 +90,6 @@ class BankCLI:
     def _handle_main_menu(self, choice: str) -> None:
         """
         Обработать выбор из главного меню.
-
         Args:
             choice: Выбор пользователя
         """
@@ -469,10 +467,8 @@ class BankCLI:
     def _get_input(self, prompt: str = "") -> str:
         """
         Получить строку от пользователя.
-
         Args:
             prompt: Приглашение для ввода
-
         Returns:
             Введённая строка
         """
@@ -482,13 +478,10 @@ class BankCLI:
     def _get_float(self, prompt: str = "") -> float:
         """
         Получить число от пользователя.
-
         Args:
             prompt: Приглашение для ввода
-
         Returns:
             Введённое число
-
         Raises:
             OperationError: Если ввод не является числом
         """

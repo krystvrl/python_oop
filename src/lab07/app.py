@@ -36,10 +36,8 @@ class BankApp:
     def add_account(self, account: BankAccount) -> None:
         """
         Добавить новый счет в коллекцию.
-
         Args:
             account: Объект банковского счета
-
         Raises:
             DuplicateAccountError: Если счет с таким номером уже существует
         """
@@ -52,7 +50,6 @@ class BankApp:
     def get_all_accounts(self) -> List[BankAccount]:
         """
         Получить все счета.
-
         Returns:
             Список всех счетов в коллекции
         """
@@ -61,7 +58,6 @@ class BankApp:
     def get_accounts_count(self) -> int:
         """
         Получить количество счетов.
-
         Returns:
             Количество счетов в коллекции
         """
@@ -77,13 +73,10 @@ class BankApp:
     def find_account_by_number(self, account_number: str) -> BankAccount:
         """
         Найти счет по номеру.
-
         Args:
             account_number: Номер счета
-
         Returns:
             Найденный счет
-
         Raises:
             AccountNotFoundError: Если счет не найден
         """
@@ -110,10 +103,8 @@ class BankApp:
     def find_accounts_by_status(self, status: AccountStatus) -> List[BankAccount]:
         """
         Найти все счета по статусу.
-
         Args:
             status: Статус счета
-
         Returns:
             Список счетов с заданным статусом
         """
@@ -122,10 +113,8 @@ class BankApp:
     def filter_accounts(self, predicate: Callable[[BankAccount], bool]) -> List[BankAccount]:
         """
         Фильтровать счета по условию.
-
         Args:
             predicate: Функция-предикат для фильтрации
-
         Returns:
             Список счетов, удовлетворяющих условию
         """
@@ -134,14 +123,11 @@ class BankApp:
     def sort_accounts(self, sort_by: str, reverse: bool = False) -> List[BankAccount]:
         """
         Отсортировать счета по выбранной стратегии.
-
         Args:
             sort_by: Ключ сортировки (owner_name, balance, created_date)
             reverse: Сортировать по убыванию, если True
-
         Returns:
             Отсортированный список счетов
-
         Raises:
             OperationError: Если указан неизвестный способ сортировки
         """
@@ -159,13 +145,10 @@ class BankApp:
     def remove_account(self, account_number: str) -> BankAccount:
         """
         Удалить счет из коллекции.
-
         Args:
             account_number: Номер счета для удаления
-
         Returns:
             Удаленный счет
-
         Raises:
             AccountNotFoundError: Если счет не найден
             OperationError: Если счет не может быть удален
@@ -184,12 +167,10 @@ class BankApp:
                 description: str = "Пополнение") -> None:
         """
         Пополнить счет.
-
         Args:
             account_number: Номер счета
             amount: Сумма пополнения
             description: Описание операции
-
         Raises:
             AccountNotFoundError: Если счет не найден
             OperationError: При ошибке во время операции
@@ -204,12 +185,10 @@ class BankApp:
                  description: str = "Снятие") -> None:
         """
         Снять деньги со счета.
-
         Args:
             account_number: Номер счета
             amount: Сумма снятия
             description: Описание операции
-
         Raises:
             AccountNotFoundError: Если счет не найден
             OperationError: При ошибке во время операции
@@ -224,13 +203,11 @@ class BankApp:
                  amount: float, description: str = "Перевод") -> None:
         """
         Перевести деньги между счетами.
-
         Args:
             from_account_number: Номер счета-отправителя
             to_account_number: Номер счета-получателя
             amount: Сумма перевода
             description: Описание операции
-
         Raises:
             AccountNotFoundError: Если счет не найден
             OperationError: При ошибке во время операции
@@ -245,13 +222,10 @@ class BankApp:
     def apply_savings_interest(self, account_number: str) -> float:
         """
         Начислить проценты на сберегательный счет.
-
         Args:
             account_number: Номер счета
-
         Returns:
             Размер начисленных процентов
-
         Raises:
             AccountNotFoundError: Если счет не найден
             OperationError: Если счет не сберегательный
@@ -265,10 +239,8 @@ class BankApp:
     def block_account(self, account_number: str) -> None:
         """
         Заблокировать счет.
-
         Args:
             account_number: Номер счета
-
         Raises:
             AccountNotFoundError: Если счет не найден
         """
@@ -278,10 +250,8 @@ class BankApp:
     def activate_account(self, account_number: str) -> None:
         """
         Активировать счет.
-
         Args:
             account_number: Номер счета
-
         Raises:
             AccountNotFoundError: Если счет не найден
         """
@@ -291,13 +261,10 @@ class BankApp:
     def get_account_info(self, account_number: str) -> dict:
         """
         Получить полную информацию о счете.
-
         Args:
             account_number: Номер счета
-
         Returns:
             Словарь с информацией о счете
-
         Raises:
             AccountNotFoundError: Если счет не найден
         """
@@ -307,7 +274,6 @@ class BankApp:
     def set_loaded_accounts(self, accounts: List[BankAccount]) -> None:
         """
         Установить загруженные счета (для восстановления из хранилища).
-
         Args:
             accounts: Список счетов для загрузки
         """
