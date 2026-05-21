@@ -1,0 +1,55 @@
+{
+  "saved_at": "2026-05-21T22:09:52.231812",
+  "accounts": [
+    {
+      "type": "basic",
+      "account_number": "408178101000",
+      "owner_name": "Симакина И.В.",
+      "balance": 120000.0,
+      "currency": "RUB",
+      "status": "активен",
+      "created_date": "20.05.2026",
+      "transactions": [
+        {
+          "type": "DEPOSIT",
+          "amount": 120000.0,
+          "description": "Начальный взнос",
+          "date": "2026-05-21T22:03:18.632649",
+          "balance_after": 120000.0
+        }
+      ]
+    },
+    {
+      "type": "savings",
+      "account_number": "408178101001",
+      "owner_name": "Норкина Р.П.",
+      "balance": 80000.0,
+      "currency": "RUB",
+      "status": "активен",
+      "created_date": "20.05.2026",
+      "transactions": [
+        {
+          "type": "DEPOSIT",
+          "amount": 80000.0,
+          "description": "Начальный взнос",
+          "date": "2026-05-21T22:03:18.640650",
+          "balance_after": 80000.0
+        }
+      ],
+      "interest_rate": 5.0
+    },
+    {
+      "type": "credit",
+      "account_number": "408178101002",
+      "owner_name": "Майоров А.С.",
+      "balance": -15000.0,
+      "currency": "USD",
+      "status": "активен",
+      "created_date": "20.05.2026",
+      "transactions": [],
+      "credit_limit": 50000.0,
+      "used_credit": 15000.0,
+      "interest_on_debt": 15.0
+    }
+  ]
+}
