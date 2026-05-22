@@ -156,21 +156,6 @@ def filter_accounts(self, predicate: Callable[[BankAccount], bool]) -> List[Bank
     ...
 ```
 
-### Docstring
-
-Каждый публичный метод содержит `docstring` с описанием, параметрами и исключениями:
-```python
-def find_accounts_by_owner(self, owner_name: str) -> List[BankAccount]:
-    """
-    Найти все счета по имени владельца (частичный поиск).
-    
-    Args:
-        owner_name: Часть имени владельца
-        
-    Returns:
-        Список найденных счетов
-    """
-```
 
 ---
 
